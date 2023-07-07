@@ -31,19 +31,34 @@ pipeline {
     stage('BUILD') {
             steps {
                 echo 'Developpement'
-                 sleep(5)
+                script {
+          echo "Checking de la coque"
+          sleep 10
+          echo "Integrité de la coque à 100%"
+                }
+                sleep(5)
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing'
+            script {
+          echo "Verification des équipement de navigation"
+          sleep 10
+          echo "Léger disfonctionnement de la carte numerique" 
+                }
                 sleep(5)
           }
         }
         stage('DEPLOY') {
             steps {
                 echo 'Mise en Production'
-                 sleep(5)
+                script {
+          echo "Verification des equipements de communication"
+          sleep 10
+          echo "Test radio ok. "    
+                    }
+                sleep(5)
             }
         }    
     }
