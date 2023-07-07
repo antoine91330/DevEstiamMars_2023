@@ -22,23 +22,28 @@ pipeline {
  
                 echo "Sexe: ${params.SEXE}"
  
-                echo "SONAR Password: ${params.SONAR_SERVER_PWD}"
+                echo "Identifiant: ${params.SONAR_SERVER_PWD}"
+               
             }
+        
         }
  
     stage('BUILD') {
             steps {
                 echo 'Developpement'
+                 sleep(5)
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing'
-            }
+                sleep(5)
+          }
         }
         stage('DEPLOY') {
             steps {
                 echo 'Mise en Production'
+                 sleep(5)
             }
         }    
     }
