@@ -9,7 +9,7 @@ pipeline {
  
         choice(name: 'SEXE', choices: ['Masculin', 'Feminin'], description: 'Sexe')
  
-        password(name: 'SONAR_SERVER_PWD', description: 'Enter SONAR password')
+        password(name: 'SONAR_SERVER_PWD', description: 'Identifiant')
     }
     stages {
         stage('Printing Parameters') {
@@ -18,7 +18,7 @@ pipeline {
                 echo "Votre prenom ${params.PRENOM}"
                 echo "Job Details: ${params.DESC}"
  
-                echo "Skip Running Test case ?: ${params.MALDESTRANSPORT}"
+                echo "Avez vous le mal des transport ?: ${params.MALDESTRANSPORT}"
  
                 echo "Sexe: ${params.SEXE}"
  
