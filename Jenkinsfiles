@@ -1,26 +1,26 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'NAME', description: 'Votre nom')
- 
+        string(name: 'NOM', description: 'Votre nom')
+         string(name: 'PRENOM', description: 'Votre prenom')
         text(name: 'DESC', description: 'Description eventuel')
  
-        booleanParam(name: 'SKIP_TEST', description: 'Avez-vous le mal des transports ?')
+        booleanParam(name: 'MALDESTRANSPORT', description: 'Avez-vous le mal des transports ?')
  
-        choice(name: 'BRANCH', choices: ['Oui', 'Non'], description: 'Aimez-vous les sensations forte')
+        choice(name: 'SEXE', choices: ['Masculin', 'Feminin'], description: 'Sexe')
  
         password(name: 'SONAR_SERVER_PWD', description: 'Enter SONAR password')
     }
     stages {
         stage('Printing Parameters') {
             steps {
-                echo "Hello ${params.NAME}"
- 
+                echo "Votre nom ${params.NOM}"
+                echo "Votre prenom ${params.PRENOM}"
                 echo "Job Details: ${params.DESC}"
  
-                echo "Skip Running Test case ?: ${params.SKIP_TEST}"
+                echo "Skip Running Test case ?: ${params.MALDESTRANSPORT}"
  
-                echo "Branch Choice: ${params.BRANCH}"
+                echo "Sexe: ${params.SEXE}"
  
                 echo "SONAR Password: ${params.SONAR_SERVER_PWD}"
             }
